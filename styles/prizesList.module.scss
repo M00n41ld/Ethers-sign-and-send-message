@@ -1,0 +1,33 @@
+.prizesList  {
+    list-style: none;
+    display: grid;
+    padding: 3rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 0.5rem;
+    column-gap: 0.6rem;
+    margin: 0 auto;
+
+  @media (max-width: 1023px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 520px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.prizesList img {
+    object-fit: cover;
+    width: 100%;
+    display: block;
+}
+
+.prizesList iframe {
+    object-fit: cover;
+    width: 100%;
+    border: none;
+}

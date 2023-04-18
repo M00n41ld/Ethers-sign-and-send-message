@@ -1,0 +1,33 @@
+.input {
+    width: 100%;
+    min-height: 6rem;
+    padding: 1rem;
+    resize: none;
+    border-radius: 0.4rem;
+    color: rgb(54, 54, 54);
+    font-family: inherit;
+    font-weight: 400;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.253);
+    background-color: rgb(219, 219, 219);
+    margin-bottom: 1rem;
+}
+
+.inputReadOnly {
+    width: 100% !important;
+    // min-height: 1rem !important;
+    // max-height: 10rem;
+    // height: auto;
+    // font-size: 30px;
+    min-height: 6rem;
+    display: block;
+    padding: 1rem;
+    resize: none;
+    border-radius: 0.4rem;
+    font-family: inherit;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: rgb(105, 24, 255);
+    background-color: rgba(255, 255, 255, 0.781);
+    // box-shadow: 0 0 10px rgba(0, 0, 0, 0.253);
+    // background-color: rgb(219, 219, 219);
+}

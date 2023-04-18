@@ -87,12 +87,13 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: #6a11cb;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
 }
 
 a {
@@ -104,4 +105,43 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.forms {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 3rem;
+  padding-top: 1rem;
+  text-align: center;
+  gap: 3rem;
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.forms h2 {
+  margin-bottom: 1rem;
+  font-weight: 400;
+  pointer-events: none;
+}
+
+.forms h3 {
+  font-weight: 400;
+}
+
+.forms h4 {
+  font-weight: 700;
+  color: rgb(137, 255, 137);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  pointer-events: none;
+}
+
+.prizes h1 {
+  text-align: center;
+  font-weight: 800;
+  text-transform: uppercase;
+  pointer-events: none;
+  padding: 2rem;
 }
