@@ -1,13 +1,20 @@
-const savePrizeToLocalStorage = (prize) => {
-    try {
-      const prizes = JSON.parse(window.localStorage.getItem("prizes")) || [];
-      prizes.push(prize);
-      window.localStorage.setItem("prizes", JSON.stringify(prizes));
-      console.log("saved");
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  
+import { ethers } from "ethers";
 
-export {savePrizeToLocalStorage}
+const savePrizeToLocalStorage = (prize, address) => {
+  console.log(address)
+  try {
+    const prizes = JSON.parse(window.localStorage.getItem(address)) || [];
+    prizes.push(prize);
+    window.localStorage.setItem(address, JSON.stringify(prizes));
+    console.log("saved");
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getPrizesFromLocalStorage = (address) => {
+  console.log(address)
+  return JSON.parse(window.localStorage.getItem(address)) || [];
+};
+
+export { savePrizeToLocalStorage, getPrizesFromLocalStorage };

@@ -14,22 +14,19 @@ export const sendToContract = async (form, setPrize, prize) => {
     const signer = await provider.getSigner();
 
     const contract = new ethers.Contract(CONTRACT_ADDRESS, abi, signer);
-    // setContractInstance(contract);
+
     try {
       const result = async () => {
         try {
-
           const sig = form.signature.trim();
           const response = await contract.verify(form.message, sig);
-          // console.log(response);
           console.log("verified");
 
           if (response === true) {
             const prizeResponse = await contract.getPrize(form.message, sig)
             console.log(prizeResponse);
             setPrize(prizeResponse);
-            // console.log(prize)
-            savePrizeToLocalStorage(prize)
+            savePrizeToLocalStorage(prize, form.address)
             return true;
           }
         } catch (error) {

@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import Input from "./Input";
 import SubmitButton from "./SubmitButton";
-// import { ethers } from "ethers";
 import { signForm } from "./helpers/sign";
 
 const SignForm = () => {

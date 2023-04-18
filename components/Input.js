@@ -1,6 +1,5 @@
 import styles from '../styles/input.module.scss'
 import React from 'react';
-import { useState } from 'react';
 import { forwardRef } from 'react';
 
 const Input = forwardRef(function createInput({type, placeholder, required, readOnly, value, id, onChange, onClick}, ref) {

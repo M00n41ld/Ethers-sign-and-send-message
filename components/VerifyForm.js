@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import Input from "./Input";
 import SubmitButton from "./SubmitButton";
-import {ethers} from "ethers";
 import Link from 'next/link';
-// import {SendToContract} from "./helpers/SendToContract";
+import Verify from "./helpers/Verify";
 import { sendToContract } from "./helpers/sendToContract";
 
 const VerifyForm = () => {
@@ -22,30 +21,12 @@ const VerifyForm = () => {
     }));
   };
 
-  const Verify = async ({ message, address, signature }) => {
-    try {
-      console.log(signature);
-      const signerAddress = ethers.utils.verifyMessage(
-        message,
-        signature.trim()
-      );
-      if (signerAddress !== address) {
-        return false;
-      }
-      return true;
-    } catch (err) {
-      console.error(err);
-      setError("Failed to verify signature");
-      return false;
-    }
-  };
-
   const handleVerify = async (e) => {
     e.preventDefault();
     setError(null);
     try {
       const verifyUser = await Verify({ message: form.message, address: form.address, signature: form.signature });
-        setVerified(verifyUser);
+      setVerified(verifyUser);
       setVerified(true);
     } catch (error) {
       console.error(error);
@@ -59,6 +40,7 @@ const VerifyForm = () => {
     console.log(isSent)
     setDrawPrize(isSent);
   };
+
   return (
     <div>
       <h2>VerifyForm</h2>
