@@ -1,0 +1,8 @@
+.buttonContainer button {
+    min-width: 565px;
+    margin-bottom: 30px;
+
+    @media (max-width: 700px) {
+        min-width: 100%;
+      }
+}

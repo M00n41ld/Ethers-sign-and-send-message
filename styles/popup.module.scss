@@ -1,0 +1,43 @@
+.popup {
+    background-color: #49416D;
+    max-width: 565px;
+    margin: 0 auto;
+    border-radius: 18px;
+    padding: 20px;
+}
+
+.popup h3 {
+    margin-bottom: 5px;
+    text-align: start;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #F7F4EA;
+}
+
+.button {
+    padding: 12px;
+    width: 40%;
+    background: #ee6352;
+    border-radius: 6px;
+    border: none;
+    color: #f7f4ea;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    font-family: inherit;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.253);
+    cursor: pointer;
+    text-transform: uppercase;
+    display: block;
+    margin-top: 12px;
+}
+
+.button:hover {
+    opacity: 0.8;
+}
+
+.button:active {
+    opacity: 0.6;
+}

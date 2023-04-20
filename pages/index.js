@@ -2,16 +2,17 @@ import Head from 'next/head'
 // import { Inter } from 'next/font/google'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
-import SignForm from '@/components/SignForm'
-import VerifyForm from '@/components/VerifyForm'
+import SignForm from '@/components/containers/SignForm'
+import VerifyForm from '@/components/containers/VerifyForm'
 import contract from '../public/smart-contract/abi.json';
 import Navigation from '@/components/Navigation'
-// const inter = Inter({ subsets: ['latin'] })
+import SignContext from '@/components/helpers/SignContext'
+import { useState } from 'react'
 
 export default function Home() {
+  const [signInfo, setSignInfo] = useState({});
   return (
     <>
-     <Navigation href={'/prizes'} text={'Prizes list'}/>
       <Head>
         <title>Eth sign and send</title>
         <meta name="description" content="Eth sign and send messages" />
@@ -20,11 +21,13 @@ export default function Home() {
       <div>
         <Header/>
         <div className='forms'>
+          <SignContext.Provider value={{signInfo, setSignInfo}}>
           <SignForm/>
           <VerifyForm/>
+          </SignContext.Provider>
         </div>
-        <Footer/>
       </div>
+      <Footer/>
     </>
   )
 }

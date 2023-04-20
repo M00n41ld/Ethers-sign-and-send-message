@@ -1,7 +1,6 @@
-import { ethers } from "ethers";
-
 const savePrizeToLocalStorage = (prize, address) => {
   console.log(address)
+  console.log(prize)
   try {
     const prizes = JSON.parse(window.localStorage.getItem(address)) || [];
     prizes.push(prize);

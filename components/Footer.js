@@ -3,8 +3,10 @@ import styles from '../styles/footer.module.scss'
 const Footer = () => {
   return (
     <div className={styles.footer}>
+        <a href='https://t.me/maryreznik'>
         <h2>Got any questions?</h2>
-        <a href='https://t.me/maryreznik'>Contact  me via telegram</a>
+        <span>Contact  me via Telegram</span>
+        </a>
     </div>
   )
 }

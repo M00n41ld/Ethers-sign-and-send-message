@@ -1,0 +1,20 @@
+.signForm {
+    min-width: 565px;
+    margin: 0 auto;
+    background-color: #49416D;
+    border-radius: 18px;
+    padding: 20px;
+    flex: 1;
+
+    @media (max-width: 700px) {
+        min-width: 100%;
+      }
+}
+
+.signForm h2 {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: start;
+    text-transform: uppercase;
+}

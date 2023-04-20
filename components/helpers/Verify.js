@@ -1,21 +1,23 @@
 import { ethers } from "ethers";
 
-const Verify = async ({ message, address, signature }) => {
+const verify = async ({ message, address, signature, setNotify }) => {
     try {
       console.log(signature);
       const signerAddress = ethers.utils.verifyMessage(
         message,
-        signature.trim()
+        signature
       );
       if (signerAddress !== address) {
+        setNotify('Signature is invalid')
         return false;
       }
+      setNotify('Signature is valid')
       return true;
     } catch (err) {
       console.error(err);
-    //   setError("Failed to verify signature");
+      setNotify('Something wrong with signature')
       return false;
     }
   };
 
-export default Verify;
+export default verify;

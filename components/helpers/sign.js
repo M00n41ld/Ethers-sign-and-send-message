@@ -1,19 +1,15 @@
 import { ethers } from "ethers";
+import { walletConnection } from "../wallet/walletConnection";
 
-export const signForm = async ({ message }) => {
+export const signForm = async ({ message, setNotify }) => {
     try {
       if (!window.ethereum) {
-        console.log("eth extension not found");
+        setNotify('Wallet not found')
       } else {
         try {
-          const provider = new ethers.providers.Web3Provider(window.ethereum);
-          provider.provider.url = "https://rpc-mumbai.maticvigil.com";
-
-          await provider.send("eth_requestAccounts", []);
-          const signer = provider.getSigner();
-          console.log(signer)
+          const user = await walletConnection();
+          const {provider, signer} = user;
           const address = await signer.getAddress();
-
           const hashedMessage = ethers.utils.hashMessage(message);
           const signature = await signer.signMessage(hashedMessage);
           return {
@@ -22,10 +18,10 @@ export const signForm = async ({ message }) => {
             signature,
           };
         } catch (error) {
-          console.log(error);
+          setNotify('Error in connection')
         }
       }
     } catch {
-      console.log("err");
+      setNotify('Error: try again')
     }
   };

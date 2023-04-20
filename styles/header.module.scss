@@ -1,6 +1,61 @@
 .header {
-    text-align: center;
-    padding: 2rem;
-    font-weight: 800;
-    pointer-events: none;
+  text-align: center;
+  padding-bottom: 0;
+  font-weight: 800;
+  max-width: 565px;
+  background-color: #49416d;
+  background-color: transparent;
+  position: relative;
+  margin: 0 auto;
+  border-radius: 0 0 18px 18px;
+  margin-bottom: 45px;
+
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.title {
+  padding-top: 2rem;
+}
+
+.title h1 {
+  color: #f7f4ea;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  width: 500px;
+  margin: 0 auto;
+
+  @media (max-width: 700px) {
+    width: 300px;
+    font-size: 21.5px;
+    line-height: 28px;
+  }
+}
+
+.title h2 {
+  color: #f7f4ea;
+  text-align: end;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  margin: 0 auto;
+  margin-bottom: 7px;
+  width: 500px;
+
+  @media (max-width: 700px) {
+    width: 300px;
+    font-size: 12px;
+  }
+}
+
+.block {
+  background-color: #49416d;
+  border-radius: 0 0 18px 0;
+  width: 100%;
+  height: 86%;
+  top: 0;
+  position: absolute;
+  z-index: -1;
 }
