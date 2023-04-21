@@ -3,10 +3,9 @@ import checkType from './helpers/checkType'
 import Link from 'next/link'
 
 const Popup = ({media}) => {
-  console.log(media)
 
   return (
-    <div className={styles.popup}>
+    <div className={`${styles.popup}`}>
       <h3>Here is your prize:</h3>
       {checkType(media)}
       <div className={styles.buttonContainer}>

@@ -6,25 +6,31 @@ import { sendToContract } from "../services/sendToContract";
 import Popup from "../Popup";
 import { handleTimeout } from "../helpers/timeOut";
 
-const SendForm = ({
-  verified,
-  setVerified,
-  setContext,
-  contextObj,
-}) => {
+const SendForm = ({ verified, setVerified, setContext, contextObj }) => {
   const [prize, setPrize] = useState("");
   const [drawPrize, setDrawPrize] = useState(false);
   const [notify, setNotify] = useState(null);
   const [isNotifyVisible, setIsNotifyVisible] = useState(false);
-  const [messageStatus, setMessageStatus] = useState('Send message to the smart contract')
+  const [messageStatus, setMessageStatus] = useState(
+    "Send message to the smart contract"
+  );
+  const [disabled, setDisabled] = useState(false);
+
   const handleSend = async (e) => {
     e.preventDefault();
-    const isSent = await sendToContract(contextObj, setPrize, setNotify);
-    setIsNotifyVisible(true);
-    handleTimeout(setNotify, setIsNotifyVisible);
-    setDrawPrize(isSent);
-    setContext({ address: "", message: "", signature: "" });
-    setVerified(false);
+    setDisabled(true);
+
+    try {
+      const isSent = await sendToContract(contextObj, setPrize, setNotify);
+      setIsNotifyVisible(true);
+      handleTimeout(setNotify, setIsNotifyVisible);
+      setDrawPrize(isSent);
+      setContext({ address: "", message: "", signature: "" });
+      setVerified(false);
+      setDisabled(false);
+    } catch {
+      setDisabled(false);
+    }
   };
 
   return (
@@ -33,18 +39,23 @@ const SendForm = ({
         <SubmitButton
           onClick={handleSend}
           type={"button"}
-          disabled={!verified}
-          text={isNotifyVisible? notify: messageStatus}
+          disabled={!verified || disabled}
+          text={isNotifyVisible ? notify : messageStatus}
         />
-        {/* <Message isVisible={isNotifyVisible} text={notify}/> */}
       </div>
-      {drawPrize ? (
-        <div>
-          <Popup media={prize} />
-        </div>
-      ) : (
-        ""
-      )}
+      <div
+        className={`${styles.popupContainer} ${
+          drawPrize ? styles.popupContainerVisible : ""
+        }`}
+      >
+        {drawPrize ? (
+          <div>
+            <Popup media={prize} />
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
     </>
   );
 };

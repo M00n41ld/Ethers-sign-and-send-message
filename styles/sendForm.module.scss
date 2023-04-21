@@ -6,3 +6,13 @@
         min-width: 100%;
       }
 }
+
+.popupContainer {
+  min-height: 325px;
+  opacity: 0;
+}
+
+.popupContainerVisible {
+  opacity: 1;
+  transition: opacity 3s;
+}

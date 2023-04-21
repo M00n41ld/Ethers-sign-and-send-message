@@ -2,7 +2,6 @@ import { ethers } from "ethers";
 
 const verify = async ({ message, address, signature, setNotify }) => {
     try {
-      console.log(signature);
       const signerAddress = ethers.utils.verifyMessage(
         message,
         signature

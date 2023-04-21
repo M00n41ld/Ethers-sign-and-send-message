@@ -15,6 +15,7 @@ const VerifyForm = () => {
   const [verified, setVerified] = useState("");
   const [notify, setNotify] = useState(null);
   const [isNotifyVisible, setIsNotifyVisible] = useState(false);
+  const [disabled, setDisabled] = useState(false);
 
   const handleMessage = (event) => {
     setContext((currentState) => ({
@@ -26,18 +27,22 @@ const VerifyForm = () => {
   const handleVerify = async (e) => {
     e.preventDefault();
     setNotify(null);
+    setDisabled(true)
     try {
       const verifyUser = await verify({
         message: contextObj.message,
         address: contextObj.address,
         signature: contextObj.signature,
         setNotify
-      });
+      }
+      );
+      setDisabled(false)
       setVerified(verifyUser);
       setIsNotifyVisible(true);
       handleTimeout(setNotify, setIsNotifyVisible);
     } catch (error) {
       console.error(error);
+      setDisabled(false)
       setNotify("Failed to verify signature");
       setIsNotifyVisible(true);
       handleTimeout(setNotify, setIsNotifyVisible);

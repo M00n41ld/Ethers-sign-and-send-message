@@ -17,9 +17,12 @@ const SignForm = () => {
   const ref = useRef(null);
   const [isNotifyVisible, setIsNotifyVisible] = useState(false);
   const context = useContext(SignContext);
+  const [disabled, setDisabled] = useState(false);
 
   const handleSign = async (e) => {
     e.preventDefault();
+    setDisabled(true)
+
     if (ref?.current) {
       try {
         const message = ref.current.value;
@@ -27,16 +30,20 @@ const SignForm = () => {
         if (sign === undefined) {
           setIsNotifyVisible(true);
           handleTimeout(setNotify, setIsNotifyVisible);
+          setDisabled(false)
           return;
         }
         setNotify("Message signed!");
         setIsNotifyVisible(true);
         handleTimeout(setNotify, setIsNotifyVisible);
         context.setSignInfo({ ...sign });
+        ref.current.value = null;
+        setDisabled(false)
       } catch (error) {
         setNotify("Error signing form");
         setIsNotifyVisible(true);
         handleTimeout(setNotify, setIsNotifyVisible);
+        setDisabled(false)
       }
     }
   };
@@ -54,7 +61,7 @@ const SignForm = () => {
           ref={ref}
         />
         <div className="container">
-          <SubmitButton text={"Sign"} type={"submit"} />
+          <SubmitButton text={"Sign"} type={"submit"} disabled={disabled}/>
           <Message isVisible={isNotifyVisible} text={notify}/>
         </div>
       </form>
