@@ -9,6 +9,7 @@ export const signForm = async ({ message, setNotify }) => {
         try {
           const user = await walletConnection();
           const {provider, signer} = user;
+          console.log(signer)
           const address = await signer.getAddress();
           const hashedMessage = ethers.utils.hashMessage(message);
           const signature = await signer.signMessage(hashedMessage);

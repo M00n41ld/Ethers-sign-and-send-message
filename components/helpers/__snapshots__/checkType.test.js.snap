@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`checkType renders image correctly 1`] = `
+<img
+  alt="prize description"
+  class="media"
+  height="200"
+  src="image.jpg"
+  width="300"
+/>
+`;

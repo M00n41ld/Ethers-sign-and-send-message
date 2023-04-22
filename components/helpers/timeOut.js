@@ -4,3 +4,4 @@ export const handleTimeout = (callback, setIsVisible) => {
       setIsVisible(false);
     }, 7000);
   };
+
