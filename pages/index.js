@@ -26,9 +26,9 @@ console.log(ethereumClient)
 export default function Home() {
   return (
     <>
-        <Header/>
         <WagmiConfig client={wagmiClient}>
         <Connector/>
+        <Header/>
         <HomeContent />
         <Footer />
       <Web3Modal
