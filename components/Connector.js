@@ -7,9 +7,9 @@ export function Connector() {
   const { isConnected } = useAccount();
   const [isLocalConnected, setIsLocalConnected] = useState(false)
   useEffect(() => {
-    setIsLocalConnected(isConnected)
+    console.log(isConnected, 'connector')
+   return setIsLocalConnected(isConnected)
   }, [isConnected])
-
   return (
     <div className={styles.container}>
         <h2>{isLocalConnected ? 'Successfully connected!' : 'First Connect your wallet'}</h2>

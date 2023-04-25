@@ -20,14 +20,15 @@ const wagmiClient = createClient({
   provider,
 });
 const ethereumClient = new EthereumClient(wagmiClient, chains);
+console.log(ethereumClient)
 
 export default function Home() {
   return (
     <>
       <WagmiConfig client={wagmiClient}>
         <Header/>
-        <HomeContent />
-        <Footer />
+        {/* <HomeContent />
+        <Footer /> */}
       </WagmiConfig>
 
       <Web3Modal
