@@ -23,12 +23,10 @@ const Prizes = () => {
     <>
       <Meta />
       <WagmiConfig client={wagmiClient}>
-        <Header />
+        {/* <Header /> */}
         <PrizesForm/>
         <Footer />
-      </WagmiConfig>
-      
-      <Web3Modal
+        <Web3Modal
         themeVariables={{
           "--w3m-font-family": "Montserrat, sans-serif",
           "--w3m-accent-color": "#ee6352",
@@ -37,6 +35,8 @@ const Prizes = () => {
         projectId={projectId}
         ethereumClient={ethereumClient}
       />
+      </WagmiConfig>
+    
     </>
   );
 };
