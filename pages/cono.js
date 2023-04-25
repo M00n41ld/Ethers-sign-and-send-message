@@ -29,8 +29,8 @@ const cono = () => {
     // <WagmiConfig client={wagmiClient}>
     <div>
         <Connector/>
-         <HomeContent />
-        <Footer />
+        {/* <HomeContent />
+        <Footer /> */}
         {/* <Web3Modal
         themeVariables={{
           "--w3m-font-family": "Montserrat, sans-serif",
@@ -40,7 +40,7 @@ const cono = () => {
         projectId={projectId}
         ethereumClient={ethereumClient}
       /> */}
-      </div>
+       </div>
     // </WagmiConfig>
   )
 }
