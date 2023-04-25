@@ -6,6 +6,7 @@ import { Web3Modal } from '@web3modal/react'
 import { w3mConnectors, w3mProvider, EthereumClient } from '@web3modal/ethereum'
 import PrizesForm from "@/components/containers/PrizesForm";
 import { Meta } from "@/components/Meta";
+import { Connector } from "@/components/Connector";
 
 const chains = [polygonMumbai]
 const projectId = '2fb4f192745ab54faae004004a0681e5'
@@ -24,6 +25,7 @@ const Prizes = () => {
       <Meta />
       <WagmiConfig client={wagmiClient}>
         {/* <Header /> */}
+        <Connector/>
         <PrizesForm/>
         <Footer />
         <Web3Modal
