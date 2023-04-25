@@ -17,7 +17,7 @@ export function Connector() {
         <h2>{isLocalConnected ? 'Successfully connected!' : 'First Connect your wallet'}</h2>
         <Web3Button />
     </div>
-    <Header/>
+    {/* <Header/> */}
     </>
   );
 }
