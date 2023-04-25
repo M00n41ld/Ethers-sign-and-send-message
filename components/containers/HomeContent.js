@@ -9,7 +9,7 @@ const HomeContent = () => {
   const [signInfo, setSignInfo] = useState({});
   const [localIsConnected, setLocalIsConnected] = useState(false);
   const { address, isConnected } = useAccount();
-  
+  console.log(isConnected)
   useEffect(() => {
     setLocalIsConnected(isConnected); 
   }, [isConnected]);

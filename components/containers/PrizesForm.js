@@ -11,6 +11,7 @@ const PrizesForm = () => {
 
   useEffect(() => {
     setLocalIsConnected(isConnected);
+    console.log(isConnected)
   }, [isConnected]);
 
   useEffect(() => {

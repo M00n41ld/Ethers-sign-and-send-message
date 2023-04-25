@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 
 export function Connector() {
   const { isConnected } = useAccount();
-  const [localConnected, isLocalConnected] = useState(false)
+  const [isLocalConnected, setIsLocalConnected] = useState(false)
   useEffect(() => {
-    isLocalConnected(isConnected)
+    setIsLocalConnected(isConnected)
   }, [isConnected])
 
   return (
