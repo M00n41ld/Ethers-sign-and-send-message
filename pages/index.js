@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <div>
         {/* <WagmiConfig client={wagmiClient}> */}
-        <Connector/>
+        {/* <Connector/> */}
         <HomeContent />
         <Footer />
       {/* <Web3Modal
