@@ -26,7 +26,8 @@ import {
 
 const cono = () => {
   return (
-    <WagmiConfig client={wagmiClient}>
+    // <WagmiConfig client={wagmiClient}>
+    <div>
         <Connector/>
          <HomeContent />
         <Footer />
@@ -39,7 +40,8 @@ const cono = () => {
         projectId={projectId}
         ethereumClient={ethereumClient}
       />
-    </WagmiConfig>
+      </div>
+    // </WagmiConfig>
   )
 }
 

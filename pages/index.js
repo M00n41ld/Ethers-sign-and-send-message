@@ -26,7 +26,7 @@ console.log(ethereumClient)
 export default function Home() {
   return (
     <>
-        <WagmiConfig client={wagmiClient}>
+        {/* <WagmiConfig client={wagmiClient}> */}
         <Connector/>
         <HomeContent />
         <Footer />
@@ -39,7 +39,7 @@ export default function Home() {
         projectId={projectId}
         ethereumClient={ethereumClient}
       />
-      </WagmiConfig>
+      {/* </WagmiConfig> */}
     </>
   );
 }
