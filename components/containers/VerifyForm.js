@@ -17,7 +17,7 @@ const VerifyForm = () => {
   const [isNotifyVisible, setIsNotifyVisible] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [initialContextObj, setInitialContextObj] = useState(contextObj);
-  
+
   useEffect(() => {
     if (
       contextObj.message !== initialContextObj.message ||
