@@ -35,6 +35,7 @@ export default function App({ Component, pageProps }) {
     <main className={montserrat.className}>
       <div className='wrapper'>
       <WagmiConfig client={wagmiClient}>
+      <Connector/>
       <Component {...pageProps} />
       <Web3Modal
         themeVariables={{
