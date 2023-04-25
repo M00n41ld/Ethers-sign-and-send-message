@@ -6,7 +6,6 @@ import {
 import { Web3Modal } from "@web3modal/react";
 import { configureChains, createClient, WagmiConfig } from "wagmi";
 import { polygonMumbai } from "wagmi/chains";
-import { Connector } from "@/components/Connector";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HomeContent from "@/components/containers/HomeContent";
@@ -26,7 +25,7 @@ export default function Home() {
   return (
     <>
       <WagmiConfig client={wagmiClient}>
-        <Header />
+        <Header/>
         <HomeContent />
         <Footer />
       </WagmiConfig>
