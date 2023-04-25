@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import Input from "../Input";
 import SubmitButton from "../SubmitButton";
-import verify from "../helpers/verify";
+import verify from "../helpers/Verify";
 import SignContext from "../helpers/SignContext";
 import styles from '../../styles/verifyForm.module.scss'
 import Message from "../Message";
