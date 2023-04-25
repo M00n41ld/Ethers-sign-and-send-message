@@ -25,7 +25,7 @@ import {
   });
   const ethereumClient = new EthereumClient(wagmiClient, chains);
   console.log(ethereumClient)
-  
+
 const montserrat = Montserrat ({
   subsets: ['latin'],
 })
@@ -36,6 +36,15 @@ export default function App({ Component, pageProps }) {
       <div className='wrapper'>
       <WagmiConfig client={wagmiClient}>
       <Component {...pageProps} />
+      <Web3Modal
+        themeVariables={{
+          "--w3m-font-family": "Montserrat, sans-serif",
+          "--w3m-accent-color": "#ee6352",
+          "--w3m-button-border-radius": "6px",
+        }}
+        projectId={projectId}
+        ethereumClient={ethereumClient}
+      />
       </WagmiConfig>
       </div>
     </main>
