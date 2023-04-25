@@ -24,7 +24,7 @@ const Prizes = () => {
     <>
       <Meta />
       <WagmiConfig client={wagmiClient}>
-        {/* <Header /> */}
+        <Header />
         <Connector/>
         <PrizesForm/>
         <Footer />

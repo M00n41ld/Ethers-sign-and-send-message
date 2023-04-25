@@ -16,7 +16,7 @@ const Header = () => {
           <Navigation href={"/"} text={"Home"} />
         </div>
       </div>
-      <Connector />
+      {/* <Connector /> */}
     </div>
   );
 };
