@@ -1,15 +1,8 @@
 import { ethers } from "ethers";
-import { walletConnection } from "../wallet/walletConnection";
+import { handleTimeout } from "@/components/helpers/timeOut";
 
-export const signForm = async ({ message, setNotify }) => {
-    try {
-      if (!window.ethereum) {
-        setNotify('Wallet not found')
-      } else {
+export const sign = async ({ message, setNotify, setIsNotifyVisible, signer }) => {
         try {
-          const user = await walletConnection();
-          const {provider, signer} = user;
-          console.log(signer)
           const address = await signer.getAddress();
           const hashedMessage = ethers.utils.hashMessage(message);
           const signature = await signer.signMessage(hashedMessage);
@@ -19,10 +12,8 @@ export const signForm = async ({ message, setNotify }) => {
             signature,
           };
         } catch (error) {
-          setNotify('Error in connection')
+          setNotify('Error in signing')
+          setIsNotifyVisible(true);
+          handleTimeout(setNotify, setIsNotifyVisible);
         }
-      }
-    } catch {
-      setNotify('Error: try again')
-    }
   };

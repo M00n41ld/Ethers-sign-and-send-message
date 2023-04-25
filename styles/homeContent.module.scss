@@ -1,0 +1,17 @@
+.forms {
+  padding-top: 0;
+  text-align: center;
+  flex-direction: column;
+  display: flex;
+  max-width: 565px;
+  margin: 0 auto;
+}
+
+.forms h2 {
+  margin-bottom: 1rem;
+  user-select: none;
+}
+
+.forms h3 {
+  font-weight: 400;
+}

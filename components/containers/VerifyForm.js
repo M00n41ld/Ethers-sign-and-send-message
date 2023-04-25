@@ -1,7 +1,7 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import Input from "../Input";
 import SubmitButton from "../SubmitButton";
-import verify from "../helpers/Verify";
+import verify from "../helpers/verify";
 import SignContext from "../helpers/SignContext";
 import styles from '../../styles/verifyForm.module.scss'
 import Message from "../Message";
@@ -16,6 +16,23 @@ const VerifyForm = () => {
   const [notify, setNotify] = useState(null);
   const [isNotifyVisible, setIsNotifyVisible] = useState(false);
   const [disabled, setDisabled] = useState(false);
+  const [initialContextObj, setInitialContextObj] = useState(contextObj);
+  
+  useEffect(() => {
+    if (
+      contextObj.message !== initialContextObj.message ||
+      contextObj.address !== initialContextObj.address ||
+      contextObj.signature !== initialContextObj.signature
+    ) {
+     setVerified(false);
+    }
+  }, [contextObj]);
+
+  useEffect(() => {
+    if (verified === true) {
+      setInitialContextObj(contextObj);
+    }
+  }, [verified]);
 
   const handleMessage = (event) => {
     setContext((currentState) => ({
@@ -82,8 +99,8 @@ const VerifyForm = () => {
           readOnly={false}
           text={contextObj.signature}
         />
-        <div className="container">
-        <SubmitButton type={"submit"} text={"Verify"} />
+        <div className={styles.container}>
+        <SubmitButton disabled={disabled} type={"submit"} text={"Verify"} />
         <Message isVisible={isNotifyVisible} text={notify} />
       </div>
       </form>

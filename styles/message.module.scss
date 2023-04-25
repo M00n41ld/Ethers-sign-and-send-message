@@ -1,0 +1,23 @@
+.message {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #f7f4ea;
+  margin-bottom: 3px;
+  text-align: end;
+}
+
+.messageContainer {
+  opacity: 0;
+  transition: opacity 2s;
+}
+
+.messageVisible {
+  opacity: 1;
+}
+
+.messageVisible .message {
+  opacity: 0;
+  transition: opacity 3s;
+  transition-delay: 4s;
+}

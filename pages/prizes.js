@@ -1,74 +1,43 @@
-import PrizesList from "@/components/PrizesList";
-import { useState, useEffect } from "react";
-import { getPrizesFromLocalStorage } from "@/components/storage/storage";
 import Header from "@/components/Header";
-import Head from "next/head";
 import Footer from "@/components/Footer";
-import { walletConnection } from "@/components/wallet/walletConnection";
-import Message from "@/components/Message";
-import { handleTimeout } from "@/components/helpers/timeOut";
+import { configureChains, createClient, WagmiConfig } from 'wagmi'
+import { polygonMumbai } from 'wagmi/chains'
+import { Web3Modal } from '@web3modal/react'
+import { w3mConnectors, w3mProvider, EthereumClient } from '@web3modal/ethereum'
+import PrizesForm from "@/components/containers/PrizesForm";
+import { Meta } from "@/components/Meta";
+
+const chains = [polygonMumbai]
+const projectId = '2fb4f192745ab54faae004004a0681e5'
+
+const { provider } = configureChains(chains, [w3mProvider({ projectId })])
+const wagmiClient = createClient({
+  autoConnect: true,
+  connectors: w3mConnectors({ projectId, version: 1, chains }),
+  provider
+})
+const ethereumClient = new EthereumClient(wagmiClient, chains)
 
 const Prizes = () => {
-  const [prizes, setPrizes] = useState([]);
-  const [address, setAddress] = useState(null);
-  const [notify, setNotify] = useState(null);
-  const [isNotifyVisible, setIsNotifyVisible] = useState(false);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        if (!window.ethereum) {
-          setNotify('Wallet not found')
-          setIsNotifyVisible(true);
-          handleTimeout(setNotify, setIsNotifyVisible);
-        } else {
-          try {
-            const user = await walletConnection();
-            const {provider, signer} = user;
-            const signerAddress = await signer.getAddress();
-            setAddress(signerAddress); 
-          } catch {
-            setNotify('User denied access')
-            setIsNotifyVisible(true)
-            handleTimeout(setNotify, setIsNotifyVisible);
-          }
-        }
-      } catch (error) {
-        console.log(error);
-        setNotify('Error in connection, try again')
-        setIsNotifyVisible(true);
-        handleTimeout(setNotify, setIsNotifyVisible);
-      }
-    };
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    if (address) { 
-      setPrizes(getPrizesFromLocalStorage(address));
-    }
-  }, [address]);
-
   return (
     <>
-    <div>
-    <Head>
-    <title>Sign and send using blockchain</title>
-    <meta name="description" content="Eth sign and send messages" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </Head>
-  
-    <Header/>
-    <div className="prizes">
-        <h2>See the collection of your prizes:</h2>
-        <PrizesList prizes={prizes}/>
-    </div>
-    {isNotifyVisible ? (
-    <div className="prizes-error"><Message isVisible={isNotifyVisible} text={notify}/></div>
-     ) : null}
-    </div>
-        <Footer/>
-        </>
+      <Meta />
+      <WagmiConfig client={wagmiClient}>
+        <Header />
+        <PrizesForm/>
+        <Footer />
+      </WagmiConfig>
+      
+      <Web3Modal
+        themeVariables={{
+          "--w3m-font-family": "Montserrat, sans-serif",
+          "--w3m-accent-color": "#ee6352",
+          "--w3m-button-border-radius": "6px",
+        }}
+        projectId={projectId}
+        ethereumClient={ethereumClient}
+      />
+    </>
   );
 };
 

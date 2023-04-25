@@ -3,14 +3,14 @@ import React, {
   useRef,
   useContext,
 } from "react";
-
 import Input from "../Input";
 import SubmitButton from "../SubmitButton";
-import { signForm } from "../helpers/sign";
+import { sign } from "../helpers/sign";
 import SignContext from "../helpers/SignContext";
 import styles from "../../styles/signForm.module.scss";
 import Message from "../Message";
 import { handleTimeout } from "../helpers/timeOut";
+import { useSigner } from 'wagmi'
 
 const SignForm = () => {
   const [notify, setNotify] = useState(null);
@@ -18,6 +18,7 @@ const SignForm = () => {
   const [isNotifyVisible, setIsNotifyVisible] = useState(false);
   const context = useContext(SignContext);
   const [disabled, setDisabled] = useState(false);
+  const { data: signer, isError } = useSigner()
 
   const handleSign = async (e) => {
     e.preventDefault();
@@ -26,8 +27,9 @@ const SignForm = () => {
     if (ref?.current) {
       try {
         const message = ref.current.value;
-        const sign = await signForm({ message, setNotify });
-        if (sign === undefined) {
+        const signResult = await sign({ message, setNotify, setIsNotifyVisible, signer });
+        if (signResult === undefined) {
+          setNotify('Error in signing')
           setIsNotifyVisible(true);
           handleTimeout(setNotify, setIsNotifyVisible);
           setDisabled(false)
@@ -36,7 +38,7 @@ const SignForm = () => {
         setNotify("Message signed!");
         setIsNotifyVisible(true);
         handleTimeout(setNotify, setIsNotifyVisible);
-        context.setSignInfo({ ...sign });
+        context.setSignInfo({ ...signResult });
         ref.current.value = null;
         setDisabled(false)
       } catch (error) {
@@ -60,7 +62,7 @@ const SignForm = () => {
           key={"message"}
           ref={ref}
         />
-        <div className="container">
+        <div className={styles.container}>
           <SubmitButton text={"Sign"} type={"submit"} disabled={disabled}/>
           <Message isVisible={isNotifyVisible} text={notify}/>
         </div>

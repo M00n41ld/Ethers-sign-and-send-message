@@ -1,0 +1,26 @@
+.container {
+  width: 100%;
+  max-width: 565px;
+  background-color: #49416d;
+  margin: 0 auto;
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 45px;
+  display: flex;
+  justify-content: space-between;
+  color: #F7F4EA;
+}
+
+.container h2 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #F7F4EA;
+  align-self: center;
+
+  @media (max-width: 700px) {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}

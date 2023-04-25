@@ -1,33 +1,45 @@
-import Head from 'next/head'
-// import { Inter } from 'next/font/google'
-import Footer from '@/components/Footer'
-import Header from '@/components/Header'
-import SignForm from '@/components/containers/SignForm'
-import VerifyForm from '@/components/containers/VerifyForm'
-import contract from '../public/smart-contract/abi.json';
-import Navigation from '@/components/Navigation'
-import SignContext from '@/components/helpers/SignContext'
-import { useState } from 'react'
+import {
+  EthereumClient,
+  w3mConnectors,
+  w3mProvider,
+} from "@web3modal/ethereum";
+import { Web3Modal } from "@web3modal/react";
+import { configureChains, createClient, WagmiConfig } from "wagmi";
+import { polygonMumbai } from "wagmi/chains";
+import { Connector } from "@/components/Connector";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import HomeContent from "@/components/containers/HomeContent";
+
+const chains = [polygonMumbai];
+const projectId = "2fb4f192745ab54faae004004a0681e5";
+
+const { provider } = configureChains(chains, [w3mProvider({ projectId })]);
+const wagmiClient = createClient({
+  autoConnect: true,
+  connectors: w3mConnectors({ projectId, version: 1, chains }),
+  provider,
+});
+const ethereumClient = new EthereumClient(wagmiClient, chains);
 
 export default function Home() {
-  const [signInfo, setSignInfo] = useState({});
   return (
     <>
-      <Head>
-        <title>Eth sign and send</title>
-        <meta name="description" content="Eth sign and send messages" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
-      <div>
-        <Header/>
-        <div className='forms'>
-          <SignContext.Provider value={{signInfo, setSignInfo}}>
-          <SignForm/>
-          <VerifyForm/>
-          </SignContext.Provider>
-        </div>
-      </div>
-      <Footer/>
+      <WagmiConfig client={wagmiClient}>
+        <Header />
+        <HomeContent />
+        <Footer />
+      </WagmiConfig>
+
+      <Web3Modal
+        themeVariables={{
+          "--w3m-font-family": "Montserrat, sans-serif",
+          "--w3m-accent-color": "#ee6352",
+          "--w3m-button-border-radius": "6px",
+        }}
+        projectId={projectId}
+        ethereumClient={ethereumClient}
+      />
     </>
-  )
+  );
 }

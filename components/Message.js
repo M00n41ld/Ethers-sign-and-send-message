@@ -1,8 +1,9 @@
-const Message = ({text, action, isVisible}) => {
+import styles from '../styles/message.module.scss'
+
+const Message = ({text, isVisible}) => {
   return (
-    <div className={`message-def ${isVisible ? 'message_visible' : 'message_not-visible'}`}>
-    <h4 className={`message`}>{text}</h4>
-    {/* <span className={`message-action`}>{action}</span> */}
+    <div className={`${styles.messageContainer} ${isVisible ? `${styles.messageVisible}` : null}`}>
+    <h4 className={styles.message}>{text}</h4>
     </div>
   )
 }
