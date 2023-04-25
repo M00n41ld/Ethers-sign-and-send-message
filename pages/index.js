@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <>
       <WagmiConfig client={wagmiClient}>
-        {/* <Header/> */}
+        <Header/>
         <Connector/>
         <HomeContent />
         <Footer />
