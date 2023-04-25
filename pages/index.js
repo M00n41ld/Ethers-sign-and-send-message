@@ -28,7 +28,6 @@ export default function Home() {
     <>
         <WagmiConfig client={wagmiClient}>
         <Connector/>
-        <Header/>
         <HomeContent />
         <Footer />
       <Web3Modal
