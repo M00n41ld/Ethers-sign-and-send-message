@@ -28,6 +28,15 @@ const cono = () => {
   return (
     <WagmiConfig client={wagmiClient}>
         <Connector/>
+        <Web3Modal
+        themeVariables={{
+          "--w3m-font-family": "Montserrat, sans-serif",
+          "--w3m-accent-color": "#ee6352",
+          "--w3m-button-border-radius": "6px",
+        }}
+        projectId={projectId}
+        ethereumClient={ethereumClient}
+      />
     </WagmiConfig>
   )
 }
