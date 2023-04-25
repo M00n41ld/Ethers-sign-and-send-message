@@ -29,7 +29,7 @@ export default function Home() {
         <Header/>
         {/* <HomeContent />
         <Footer /> */}
-              <Web3Modal
+      <Web3Modal
         themeVariables={{
           "--w3m-font-family": "Montserrat, sans-serif",
           "--w3m-accent-color": "#ee6352",

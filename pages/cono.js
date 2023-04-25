@@ -28,6 +28,8 @@ const cono = () => {
   return (
     <WagmiConfig client={wagmiClient}>
         <Connector/>
+         <HomeContent />
+        <Footer />
         <Web3Modal
         themeVariables={{
           "--w3m-font-family": "Montserrat, sans-serif",
