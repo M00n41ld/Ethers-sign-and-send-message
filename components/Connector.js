@@ -12,12 +12,12 @@ export function Connector() {
    return setIsLocalConnected(isConnected)
   }, [isConnected])
   return (
-    <>
+    <div>
     <div className={styles.container}>
         <h2>{isLocalConnected ? 'Successfully connected!' : 'First Connect your wallet'}</h2>
         <Web3Button />
     </div>
     {/* <Header/> */}
-    </>
+    </div>
   );
 }
