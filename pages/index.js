@@ -9,6 +9,7 @@ import { polygonMumbai } from "wagmi/chains";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HomeContent from "@/components/containers/HomeContent";
+import { Connector } from "@/components/Connector";
 
 const chains = [polygonMumbai];
 const projectId = "2fb4f192745ab54faae004004a0681e5";
@@ -27,8 +28,9 @@ export default function Home() {
     <>
       <WagmiConfig client={wagmiClient}>
         <Header/>
-        {/* <HomeContent />
-        <Footer /> */}
+        <Connector/>
+        <HomeContent />
+        <Footer />
       <Web3Modal
         themeVariables={{
           "--w3m-font-family": "Montserrat, sans-serif",
