@@ -30,7 +30,7 @@ export default function Home() {
         <Connector/>
         <HomeContent />
         <Footer />
-      <Web3Modal
+      {/* <Web3Modal
         themeVariables={{
           "--w3m-font-family": "Montserrat, sans-serif",
           "--w3m-accent-color": "#ee6352",
@@ -38,7 +38,7 @@ export default function Home() {
         }}
         projectId={projectId}
         ethereumClient={ethereumClient}
-      />
+      /> */}
       {/* </WagmiConfig> */}
     </div>
   );
