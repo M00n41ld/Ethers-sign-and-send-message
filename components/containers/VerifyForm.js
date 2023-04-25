@@ -11,7 +11,6 @@ import SendForm from "./SendForm";
 const VerifyForm = () => {
   const contextObj = useContext(SignContext).signInfo;
   const setContext = useContext(SignContext).setSignInfo;
-
   const [verified, setVerified] = useState("");
   const [notify, setNotify] = useState(null);
   const [isNotifyVisible, setIsNotifyVisible] = useState(false);
