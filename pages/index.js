@@ -16,8 +16,8 @@ import { Meta } from "@/components/Meta";
 export default function Home() {
   return (
     <>
-      <Meta />
-      <Header />
+      {/* <Meta />
+      <Header /> */}
       <Connector />
       <HomeContent />
       <Footer />
