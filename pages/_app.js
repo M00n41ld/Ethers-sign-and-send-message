@@ -13,6 +13,7 @@ import {
   import Header from "@/components/Header";
   import Footer from "@/components/Footer";
   import HomeContent from "@/components/containers/HomeContent";
+  import { useState } from 'react';
   
   const chains = [polygonMumbai];
   const projectId = "2fb4f192745ab54faae004004a0681e5";
