@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import { handleTimeout } from "@/components/helpers/timeOut";
+import { handleTimeout } from "./timeOut";
 
 export const sign = async ({
   message,

@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import checkType from './checkType';
+import checkType from '../checkType.js';
 
 describe('checkType', () => {
 //img

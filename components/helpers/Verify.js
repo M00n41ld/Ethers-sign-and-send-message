@@ -10,7 +10,7 @@ const verify = async ({ message, address, signature, setNotify }) => {
     setNotify("Signature is valid");
     return true;
   } catch (err) {
-    console.error(err);
+    console.log(err);
     setNotify("Something wrong with signature");
     return false;
   }
