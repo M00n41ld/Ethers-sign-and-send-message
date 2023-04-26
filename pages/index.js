@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <>
       <Meta />
-      {/* <Header /> */}
+      <Header />
       <Connector />
       <HomeContent />
       <Footer />
