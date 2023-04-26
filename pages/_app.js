@@ -37,6 +37,7 @@ export default function App({ Component, pageProps }) {
       <WagmiConfig client={wagmiClient}>
       <Connector/>
       <Component {...pageProps} />
+      </WagmiConfig>
       <Web3Modal
         themeVariables={{
           "--w3m-font-family": "Montserrat, sans-serif",
@@ -46,7 +47,6 @@ export default function App({ Component, pageProps }) {
         projectId={projectId}
         ethereumClient={ethereumClient}
       />
-      </WagmiConfig>
       </div>
     </main>
   )
