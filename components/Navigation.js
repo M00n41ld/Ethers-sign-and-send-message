@@ -8,9 +8,9 @@ const Navigation = ({ href, text }) => {
   const isActive = asPath === href;
   console.log(isActive)
   return (
-    <div className={`${styles.nav}`}>
+    <nav className={`${styles.nav}`}>
         <Link className={isActive? 'active' : ''} href={href}>{text}</Link>
-    </div>
+    </nav>
   )
 }
 
