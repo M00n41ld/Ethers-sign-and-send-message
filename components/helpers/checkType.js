@@ -1,9 +1,8 @@
 import React from "react";
-import Image from "next/image";
 
 const checkType = (prize) => {
   if (!prize) {
-    return (<span>Nothing to render</span>);
+    return <span>Nothing to render</span>;
   }
 
   const imageRegex = /(jpg|webp|png)/;

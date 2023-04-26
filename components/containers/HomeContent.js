@@ -3,8 +3,9 @@ import SignForm from "@/components/containers/SignForm";
 import VerifyForm from "@/components/containers/VerifyForm";
 import SignContext from "@/components/helpers/SignContext";
 import { useState, useEffect } from "react";
-import { useAccount, useConnect, useDisconnect } from "wagmi";
+import { useAccount } from "wagmi";
 import styles from "../../styles/homeContent.module.scss";
+
 const HomeContent = () => {
   const [signInfo, setSignInfo] = useState({});
   const [localIsConnected, setLocalIsConnected] = useState(false);

@@ -1,6 +1,6 @@
 import PrizesList from "../PrizesList";
 import { useEffect, useState } from "react";
-import { useAccount, useConnect, useDisconnect } from "wagmi";
+import { useAccount } from "wagmi";
 import { getPrizesFromLocalStorage } from "@/components/storage/storage";
 import styles from "../../styles/prizesForm.module.scss";
 
