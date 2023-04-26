@@ -44,7 +44,7 @@ export default function App({ Component, pageProps }) {
     <WagmiConfig client={wagmiClient}>
     <main className={montserrat.className}>
       <div className='wrapper'>
-      <Connector/>
+      {/* <Connector/> */}
       <Component {...pageProps} />
       </div>
     </main>
