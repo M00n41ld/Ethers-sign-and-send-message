@@ -28,7 +28,7 @@ const cono = () => {
   return (
     // <WagmiConfig client={wagmiClient}>
     <div>
-        {/* <Connector/> */}
+        <Connector/>
         {/* <HomeContent />
         <Footer /> */}
         {/* <Web3Modal
@@ -40,7 +40,6 @@ const cono = () => {
         projectId={projectId}
         ethereumClient={ethereumClient}
       /> */}
-      div
        </div>
     // </WagmiConfig>
   )
