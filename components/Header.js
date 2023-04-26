@@ -1,6 +1,5 @@
 import styles from "../styles/header.module.scss";
 import Navigation from "./Navigation";
-import { Connector } from "./Connector";
 
 const Header = () => {
   return (
@@ -16,7 +15,6 @@ const Header = () => {
           <Navigation href={"/"} text={"Home"} />
         </div>
       </div>
-      {/* <Connector /> */}
     </div>
   );
 };
