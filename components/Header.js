@@ -11,8 +11,8 @@ const Header = () => {
           <div className={styles.block}></div>
         </div>
         <div className={styles.navigate}>
-          <Navigation href={"/prizes"} text={"Prizes list"} />
           <Navigation href={"/"} text={"Home"} />
+          <Navigation href={"/prizes"} text={"Prizes list"} />
         </div>
       </div>
     </header>
