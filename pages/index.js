@@ -26,8 +26,7 @@ import { Web3Button, Web3NetworkSwitch } from "@web3modal/react";
 export default function Home() {
   return (
     <>
-    <Web3Button/>
-        {/* <Connector/> */}
+        <Connector/>
         <HomeContent />
         <Footer />
     </>
