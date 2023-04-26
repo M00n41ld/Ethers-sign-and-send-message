@@ -27,22 +27,9 @@ export default function Home() {
   return (
     <>
     <Web3Button/>
-
-    <Web3NetworkSwitch />
-        {/* <WagmiConfig client={wagmiClient}> */}
-        {/* <Connector/>
+        {/* <Connector/> */}
         <HomeContent />
-        <Footer /> */}
-      {/* <Web3Modal
-        themeVariables={{
-          "--w3m-font-family": "Montserrat, sans-serif",
-          "--w3m-accent-color": "#ee6352",
-          "--w3m-button-border-radius": "6px",
-        }}
-        projectId={projectId}
-        ethereumClient={ethereumClient}
-      /> */}
-      {/* </WagmiConfig> */}
+        <Footer />
     </>
   );
 }
