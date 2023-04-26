@@ -31,13 +31,24 @@ const montserrat = Montserrat ({
 })
 
 export default function App({ Component, pageProps }) {
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    setReady(true);
+  }, []);
+
   return (
+    <>
+    {ready ? (
+    <WagmiConfig client={wagmiClient}>
     <main className={montserrat.className}>
       <div className='wrapper'>
-      <WagmiConfig client={wagmiClient}>
       <Connector/>
       <Component {...pageProps} />
-      </WagmiConfig>
+      </div>
+    </main>
+    </WagmiConfig>
+      ) : null}
       <Web3Modal
         themeVariables={{
           "--w3m-font-family": "Montserrat, sans-serif",
@@ -47,7 +58,6 @@ export default function App({ Component, pageProps }) {
         projectId={projectId}
         ethereumClient={ethereumClient}
       />
-      </div>
-    </main>
+      </>
   )
 }
