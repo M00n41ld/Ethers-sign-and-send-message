@@ -12,14 +12,14 @@ import Message from "../Message";
 import { handleTimeout } from "../helpers/timeOut";
 import { useSigner } from 'wagmi'
 
-const SignForm = () => {
+const SignForm = ({signer}) => {
   const [notify, setNotify] = useState(null);
   const ref = useRef(null);
   const [isNotifyVisible, setIsNotifyVisible] = useState(false);
   const context = useContext(SignContext);
   const [disabled, setDisabled] = useState(false);
-  const { data: signer, isError } = useSigner()
-
+  // const { data: signer, isError } = useSigner()
+console.log(signer)
   const handleSign = async (e) => {
     e.preventDefault();
     setDisabled(true)

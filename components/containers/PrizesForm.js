@@ -4,7 +4,7 @@ import React from "react";
 import { getPrizesFromLocalStorage } from "../storage/storage";
 import styles from "../../styles/prizesForm.module.scss";
 
-const PrizesForm = ({address, isConnected}) => {
+const PrizesForm = ({ address, isConnected}) => {
   const [prizes, setPrizes] = useState([]);
   const [localIsConnected, setLocalIsConnected] = useState(false);
 

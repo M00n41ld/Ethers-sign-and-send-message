@@ -10,7 +10,7 @@ import {
   import { configureChains, createClient, WagmiConfig, useAccount } from "wagmi";
   import { polygonMumbai } from "wagmi/chains";
   import { useState, useEffect } from 'react';
-  
+
   const chains = [polygonMumbai];
   const projectId = "2fb4f192745ab54faae004004a0681e5";
   
@@ -29,7 +29,7 @@ const montserrat = Montserrat ({
 
 export default function App({ Component, pageProps }) {
   const [ready, setReady] = useState(false);
-
+  
   useEffect(() => {
     setReady(true);
   }, []);

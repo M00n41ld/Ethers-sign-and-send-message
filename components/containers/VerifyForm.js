@@ -8,10 +8,10 @@ import Message from "../Message";
 import { handleTimeout } from "../helpers/timeOut";
 import SendForm from "./SendForm";
 
-const VerifyForm = () => {
+const VerifyForm = ({signer}) => {
   const contextObj = useContext(SignContext).signInfo;
   const setContext = useContext(SignContext).setSignInfo;
-  const [verified, setVerified] = useState("");
+  const [verified, setVerified] = useState(false);
   const [notify, setNotify] = useState(null);
   const [isNotifyVisible, setIsNotifyVisible] = useState(false);
   const [disabled, setDisabled] = useState(false);
@@ -104,7 +104,7 @@ const VerifyForm = () => {
       </div>
       </form>
     </div>
-    <SendForm verified={verified} setVerified={setVerified} setContext={setContext} contextObj={contextObj} setNotify={setNotify}/>
+    <SendForm signer={signer} verified={verified} setVerified={setVerified} setContext={setContext} contextObj={contextObj} setNotify={setNotify}/>
    </div>
   );
 };
