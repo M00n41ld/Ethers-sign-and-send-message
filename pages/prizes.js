@@ -11,7 +11,7 @@ const Prizes = () => {
     <>
       <Meta />
       <Header />
-      <Connector />
+      <Connector isConnected={isConnected}/>
       <PrizesForm address={address} isConnected={isConnected}/>
       <Footer />
     </>

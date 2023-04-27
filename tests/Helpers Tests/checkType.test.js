@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react';
-import checkType from '../checkType.js';
+import checkType from '../../components/helpers/checkType.js';
 
 describe('checkType', () => {
-//img
+
   it('renders image correctly', () => {
     const prize = 'image.jpg';
     const { container } = render(checkType(prize));
@@ -26,7 +26,7 @@ describe('checkType', () => {
     expect(imgElement).toBeInTheDocument();
     expect(imgElement).toHaveAttribute('src', prize);
   });
-//audio
+
   it('renders audio correctly', () => {
     const prize = 'audio.mp3';
     const { container } = render(checkType(prize));
@@ -42,7 +42,6 @@ describe('checkType', () => {
     expect(audioElement).toBeInTheDocument();
   });
   
-//video
   it('renders video correctly', () => {
     const prize = 'video.mp4';
     const { container } = render(checkType(prize));
@@ -58,7 +57,6 @@ describe('checkType', () => {
     expect(videoElement).toBeInTheDocument();
   });
 
-//gif
   it('renders gif correctly', () => {
     const prize = 'image.gif';
     const { container } = render(checkType(prize));
@@ -74,7 +72,6 @@ describe('checkType', () => {
     expect(gifElement).toBeInTheDocument();
   });
 
-//iframe
   it('renders iframe correctly', () => {
     const prize = 'https://example.com';
     const { container } = render(checkType(prize));

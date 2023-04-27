@@ -1,4 +1,4 @@
-import verify from "../Verify.js";
+import verify from "../../components/helpers/Verify.js";
 import { ethers } from "ethers";
 
 describe("verify function", () => {

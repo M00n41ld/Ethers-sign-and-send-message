@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import SubmitButton from '../SubmitButton';
+import SubmitButton from '../../components/SubmitButton';
 
 describe('SubmitButton', () => {
   it('renders with text and without disabled prop', () => {

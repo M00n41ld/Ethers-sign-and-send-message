@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import Message from '../Message';
+import Message from '../../components/Message';
 import styles from '../../styles/message.module.scss';
 
 describe('Message component', () => {

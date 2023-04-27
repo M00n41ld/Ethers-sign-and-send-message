@@ -1,8 +1,8 @@
-import { savePrizeToLocalStorage, getPrizesFromLocalStorage } from '../storage';
+import { savePrizeToLocalStorage, getPrizesFromLocalStorage } from "../../components/storage/storage";
 
-describe('savePrizeToLocalStorage', () => {
+describe("savePrizeToLocalStorage", () => {
   beforeEach(() => {
-    Object.defineProperty(window, 'localStorage', {
+    Object.defineProperty(window, "localStorage", {
       value: {
         getItem: jest.fn(),
         setItem: jest.fn(),
@@ -11,9 +11,9 @@ describe('savePrizeToLocalStorage', () => {
     });
   });
 
-  test('it should save a prize to local storage', () => {
-    const address = 'test_address';
-    const prize = 'Test Prize';
+  test("it should save a prize to local storage", () => {
+    const address = "test_address";
+    const prize = "Test Prize";
     const mockSetNotify = jest.fn();
 
     window.localStorage.getItem.mockReturnValueOnce(JSON.stringify([]));
@@ -21,33 +21,33 @@ describe('savePrizeToLocalStorage', () => {
     savePrizeToLocalStorage(prize, address, mockSetNotify);
 
     expect(window.localStorage.setItem).toHaveBeenCalledWith(
-      'test_address',
-      JSON.stringify(['Test Prize'])
+      "test_address",
+      JSON.stringify(["Test Prize"])
     );
 
     expect(mockSetNotify).not.toHaveBeenCalled();
   });
 
-  test('it should handle errors and notify user', () => {
-    const address = 'test_address';
-    const prize = 'Test Prize';
+  test("it should handle errors and notify user", () => {
+    const address = "test_address";
+    const prize = "Test Prize";
     const mockSetNotify = jest.fn();
-    const mockConsoleError = jest.spyOn(console, 'error');
+    const mockConsoleError = jest.spyOn(console, "error");
 
     window.localStorage.setItem.mockImplementationOnce(() => {
-      throw new Error('Local storage error');
+      throw new Error("Local storage error");
     });
 
     savePrizeToLocalStorage(prize, address, mockSetNotify);
 
-    expect(mockSetNotify).toHaveBeenCalledWith('Error saving prizes');
+    expect(mockSetNotify).toHaveBeenCalledWith("Error saving prizes");
     expect(mockConsoleError).toHaveBeenCalled();
   });
 });
 
-describe('getPrizesFromLocalStorage', () => {
+describe("getPrizesFromLocalStorage", () => {
   beforeEach(() => {
-    Object.defineProperty(window, 'localStorage', {
+    Object.defineProperty(window, "localStorage", {
       value: {
         getItem: jest.fn(),
         setItem: jest.fn(),
@@ -56,8 +56,8 @@ describe('getPrizesFromLocalStorage', () => {
     });
   });
 
-  test('returns an empty array when no prizes are stored in local storage', () => {
-    const address = 'test_address';
+  test("returns an empty array when no prizes are stored in local storage", () => {
+    const address = "test_address";
 
     window.localStorage.getItem.mockReturnValueOnce(undefined);
 
@@ -66,9 +66,9 @@ describe('getPrizesFromLocalStorage', () => {
     expect(prizes).toEqual([]);
   });
 
-  test('returns an array of prizes when prizes are stored in local storage', () => {
-    const address = 'test_address';
-    const prize = 'Test Prize';
+  test("returns an array of prizes when prizes are stored in local storage", () => {
+    const address = "test_address";
+    const prize = "Test Prize";
 
     window.localStorage.getItem.mockReturnValueOnce(JSON.stringify([prize]));
 

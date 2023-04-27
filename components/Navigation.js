@@ -5,9 +5,8 @@ import styles from '../styles/navigation.module.scss';
 
 const Navigation = ({ href, text }) => {
   const { asPath } = useRouter(); 
-
   const isActive = asPath === href;
-  console.log(isActive)
+
   return (
     <nav className={`${styles.nav}`}>
         <Link className={isActive? 'active' : ''} href={href}>{text}</Link>

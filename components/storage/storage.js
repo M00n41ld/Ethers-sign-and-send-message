@@ -14,4 +14,5 @@ const getPrizesFromLocalStorage = (address) => {
   const storedPrizes = window.localStorage.getItem(address);
   return storedPrizes ? JSON.parse(storedPrizes) : [];
 };
+
 export { savePrizeToLocalStorage, getPrizesFromLocalStorage };

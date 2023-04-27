@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import React from "react";
-import PrizesForm from "../PrizesForm";
+import PrizesForm from "../../components/containers/PrizesForm";
 
 describe("PrizesForm", () => {
   it("doesnt render the component when not connected", () => {

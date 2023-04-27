@@ -1,4 +1,4 @@
-import { sign } from "../sign.js";
+import { sign } from "../../components/helpers/sign.js";
 
 jest.useFakeTimers();
 
