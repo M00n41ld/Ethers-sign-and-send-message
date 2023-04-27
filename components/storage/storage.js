@@ -6,12 +6,12 @@ const savePrizeToLocalStorage = (prize, address, setNotify) => {
     window.localStorage.setItem(address, JSON.stringify(prizes));
   } catch (error) {
     console.error(error);
-    setNotify('Error loading prizes')
+    setNotify('Error saving prizes')
   }
 };
 
 const getPrizesFromLocalStorage = (address) => {
-  return JSON.parse(window.localStorage.getItem(address)) || [];
+  const storedPrizes = window.localStorage.getItem(address);
+  return storedPrizes ? JSON.parse(storedPrizes) : [];
 };
-
 export { savePrizeToLocalStorage, getPrizesFromLocalStorage };

@@ -9,10 +9,11 @@ export const sign = async ({
 }) => {
   try {
     const address = await signer.getAddress();
-    const hashedMessage = ethers.utils.hashMessage(message);
-    const signature = await signer.signMessage(hashedMessage);
+    //изначально я хешировала сообщение, тк в тз была подсказка, но и без хеша функция контракта verify отрабатывает успешно
+    // const hashedMessage = ethers.utils.hashMessage(message);
+    const signature = await signer.signMessage(message);
     return {
-      message: hashedMessage,
+      message,
       address,
       signature,
     };

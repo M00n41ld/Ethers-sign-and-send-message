@@ -1,6 +1,7 @@
 import styles from '../styles/popup.module.scss'
 import checkType from './helpers/checkType'
 import Link from 'next/link'
+import React from 'react';
 
 const Popup = ({media}) => {
 

@@ -1,13 +1,12 @@
 import PrizesList from "../PrizesList";
 import { useEffect, useState } from "react";
-import { useAccount } from "wagmi";
-import { getPrizesFromLocalStorage } from "@/components/storage/storage";
+import React from "react";
+import { getPrizesFromLocalStorage } from "../storage/storage";
 import styles from "../../styles/prizesForm.module.scss";
 
-const PrizesForm = () => {
+const PrizesForm = ({address, isConnected}) => {
   const [prizes, setPrizes] = useState([]);
   const [localIsConnected, setLocalIsConnected] = useState(false);
-  const { address, isConnected } = useAccount();
 
   useEffect(() => {
     setLocalIsConnected(isConnected);

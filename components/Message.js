@@ -1,4 +1,5 @@
 import styles from '../styles/message.module.scss'
+import React from 'react';
 
 const Message = ({text, isVisible}) => {
   return (

@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import styles from '../styles/navigation.module.scss';
+import React from 'react';
 
 const Navigation = ({ href, text }) => {
   const { asPath } = useRouter(); 

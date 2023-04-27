@@ -1,6 +1,5 @@
 import '@/styles/globals.scss'
 import { Montserrat } from 'next/font/google'
-import { Connector } from '@/components/Connector'
 import React from 'react'
 import {
     EthereumClient,
@@ -8,11 +7,8 @@ import {
     w3mProvider,
   } from "@web3modal/ethereum";
   import { Web3Modal } from "@web3modal/react";
-  import { configureChains, createClient, WagmiConfig } from "wagmi";
+  import { configureChains, createClient, WagmiConfig, useAccount } from "wagmi";
   import { polygonMumbai } from "wagmi/chains";
-  import Header from "@/components/Header";
-  import Footer from "@/components/Footer";
-  import HomeContent from "@/components/containers/HomeContent";
   import { useState, useEffect } from 'react';
   
   const chains = [polygonMumbai];
@@ -44,7 +40,6 @@ export default function App({ Component, pageProps }) {
     <WagmiConfig client={wagmiClient}>
     <main className={montserrat.className}>
       <div className='wrapper'>
-      {/* <Connector/> */}
       <Component {...pageProps} />
       </div>
     </main>

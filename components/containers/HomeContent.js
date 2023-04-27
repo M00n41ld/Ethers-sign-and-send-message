@@ -1,5 +1,5 @@
 import React from "react";
-import SignForm from "@/components/containers/SignForm";
+import SignForm from "./SignForm";
 import VerifyForm from "@/components/containers/VerifyForm";
 import SignContext from "@/components/helpers/SignContext";
 import { useState, useEffect } from "react";

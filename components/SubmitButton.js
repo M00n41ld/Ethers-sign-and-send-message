@@ -1,4 +1,5 @@
 import styles from '../styles/submitButton.module.scss'
+import React from 'react';
 
 const SubmitButton = ({onClick, text, type, disabled}) => {
   return (

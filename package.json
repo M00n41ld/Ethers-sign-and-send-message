@@ -15,6 +15,7 @@
     "@ethersproject/hash": "^5.7.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "github:testing-library/user-event",
     "@web3modal/ethereum": "^2.3.6",
     "@web3modal/react": "^2.3.6",
     "eslint": "8.37.0",
@@ -31,12 +32,25 @@
   "devDependencies": {
     "@babel/preset-env": "^7.21.4",
     "babel-jest": "^29.5.0",
-    "jest-environment-jsdom": "^29.5.0"
+    "babel-plugin-css-modules-transform": "^1.6.2",
+    "jest-environment-jsdom": "^29.5.0",
+    "jest-screenshot": "^0.3.5"
   },
   "jest": {
     "testEnvironment": "jsdom",
     "setupFilesAfterEnv": [
       "@testing-library/jest-dom/extend-expect"
+    ],
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/(?!wagmi/.*)"
+    ],
+    "extensionsToTreatAsEsm": [
+      ".ts",
+      ".tsx",
+      ".jsx"
     ]
   }
 }

@@ -23,7 +23,7 @@ describe("sign function", () => {
 
   it("should return the correct result when signing is successful", async () => {
     const message = "привет";
-    const hashedMessage = "0xe8c45c1325a4bf29e8a8b684be26754ec3f2c7489ed3345b34ffbdbc00a8b23e";
+    // const hashedMessage = "0xe8c45c1325a4bf29e8a8b684be26754ec3f2c7489ed3345b34ffbdbc00a8b23e";
     const signature = "0x6ebdab30608cb0da7aaf8fdb5f1261c46c8d354ba10e76509286d370493858d14bb897d579b80bb29b4da22a617b2e0e8434e0e70cdbbd9f28573992a981c8101c";
 
     signer.getAddress.mockResolvedValueOnce("0x1B12784e8D035a36cA8f31e86B7143b190f37A70");
@@ -37,7 +37,7 @@ describe("sign function", () => {
     });
 
     expect(result).toEqual({
-      message: hashedMessage,
+      message,
       address: "0x1B12784e8D035a36cA8f31e86B7143b190f37A70",
       signature,
     });

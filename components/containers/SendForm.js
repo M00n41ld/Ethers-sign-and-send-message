@@ -36,6 +36,8 @@ const SendForm = ({ verified, setVerified, setContext, contextObj }) => {
     }
   };
 
+  console.log(prize)
+
   return (
     <>
       <div className={styles.buttonContainer}>

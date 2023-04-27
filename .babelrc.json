@@ -1,4 +1,20 @@
 {
-    "presets": ["@babel/preset-env","@babel/preset-react"]
-  }
-  
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": "commonjs"
+      }
+    ],
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    [
+      "css-modules-transform",
+      {
+        "extensions": [".scss"],
+        // "preprocessCss": "./path/to/custom-sass-preprocessor.js" // Если нужно предварительно обработать SCSS
+      }
+    ]
+  ]
+}
