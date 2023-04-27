@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 import { savePrizeToLocalStorage } from "../storage/storage";
-import abi from "@/public/smart-contract/abi.json";
+import abi from "../../public/smart-contract/abi.json";
 
 const CONTRACT_ADDRESS = "0xc96064B5E057043B2F6183Dd85fe58b4131b44D4";
 
