@@ -1,14 +1,14 @@
 import React from "react";
 import SignForm from "./SignForm";
-import VerifyForm from "@/components/containers/VerifyForm";
-import SignContext from "@/components/helpers/SignContext";
+import VerifyForm from "./VerifyForm";
+import SignContext from "../helpers/SignContext";
 import { useState, useEffect } from "react";
 import styles from "../../styles/homeContent.module.scss";
 
 const HomeContent = ({signer, address, isConnected}) => {
   const [signInfo, setSignInfo] = useState({});
   const [localIsConnected, setLocalIsConnected] = useState(false);
-  
+
   console.log(isConnected)
   useEffect(() => {
     setLocalIsConnected(isConnected); 

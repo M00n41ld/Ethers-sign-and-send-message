@@ -1,4 +1,3 @@
-import { ethers } from "ethers";
 import { handleTimeout } from "./timeOut";
 
 export const sign = async ({

@@ -6,7 +6,6 @@ import { sendToContract } from "../services/sendToContract";
 import Popup from "../Popup";
 import { handleTimeout } from "../helpers/timeOut";
 
-
 const SendForm = ({ signer, verified, setVerified, setContext, contextObj }) => {
   const [prize, setPrize] = useState("");
   const [drawPrize, setDrawPrize] = useState(false);
