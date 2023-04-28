@@ -5,7 +5,6 @@ import styles from "../../styles/sendForm.module.scss";
 import { sendToContract } from "../services/sendToContract";
 import Popup from "../Popup";
 import { handleTimeout } from "../helpers/timeOut";
-import { useSigner } from 'wagmi'
 
 
 const SendForm = ({ signer, verified, setVerified, setContext, contextObj }) => {
@@ -17,7 +16,6 @@ const SendForm = ({ signer, verified, setVerified, setContext, contextObj }) => 
     "Send message to the smart contract"
   );
   const [disabled, setDisabled] = useState(false);
-  // const { data: signer, isError } = useSigner();
 
   const handleSend = async (e) => {
     e.preventDefault();
