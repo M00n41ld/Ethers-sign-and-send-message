@@ -9,7 +9,6 @@ const HomeContent = ({signer, address, isConnected}) => {
   const [signInfo, setSignInfo] = useState({});
   const [localIsConnected, setLocalIsConnected] = useState(false);
 
-  console.log(isConnected)
   useEffect(() => {
     setLocalIsConnected(isConnected); 
   }, [isConnected]);

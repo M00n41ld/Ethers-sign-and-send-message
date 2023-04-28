@@ -8,9 +8,9 @@ export function Connector() {
   const [isLocalConnected, setIsLocalConnected] = useState(false);
   
   useEffect(() => {
-    console.log(isConnected, "connector");
     return setIsLocalConnected(isConnected);
   }, [isConnected]);
+  
   return (
     <div className={styles.container}>
       <h2>
