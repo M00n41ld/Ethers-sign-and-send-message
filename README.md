@@ -1,7 +1,7 @@
 
 Приложение для подписи сообщений и отправки сообщений в смарт контракт на Next.js
 
-Проект опубликован на Vercel - https://ethers-sign-and-send-message-pdex-efxsegvpq-m00n41ld.vercel.app/
+Проект опубликован на Vercel - [https://ethers-sign-and-send-message-pdex-efxsegvpq-m00n41ld.vercel.app/](https://ethers-sign-and-send-message-pdex.vercel.app/)
 
 ## Архитектура приложения
 
